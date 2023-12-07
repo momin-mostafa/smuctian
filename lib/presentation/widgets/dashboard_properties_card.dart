@@ -141,12 +141,25 @@ import 'animated_dashboard_card.dart';
 //   }
 // }
 
-class DashBoardPropertiesCard extends StatelessWidget {
-  const DashBoardPropertiesCard({super.key, this.onTap});
-  final VoidCallback? onTap;
 
+enum CardType {
+  courses,
+  assignments,
+  notices,
+  exams,
+  classes
+}
+
+class DashBoardPropertiesCard extends StatelessWidget {
+  const DashBoardPropertiesCard(
+      {super.key, this.onTap, this.cardType = CardType.classes});
+
+  final VoidCallback? onTap;
+  final CardType cardType;
   @override
   Widget build(BuildContext context) {
+    var unit = getUnit();
+    var icon = getIcon();
     return InkWell(
       onTap: onTap,
       child: Card(
@@ -165,11 +178,12 @@ class DashBoardPropertiesCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Rent For House',
+                          'Course Name',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 13,
-                            color: Theme.of(context)
+                            color: Theme
+                                .of(context)
                                 .colorScheme
                                 .secondary
                                 .withOpacity(0.8),
@@ -177,25 +191,33 @@ class DashBoardPropertiesCard extends StatelessWidget {
                         ),
                         Icon(
                           Icons.more_vert_rounded,
-                          color: Theme.of(context).primaryColor,
+                          color: Theme
+                              .of(context)
+                              .primaryColor,
                         )
                       ],
                     ),
+                    if(unit != null)
                     RichText(
                       text: TextSpan(
-                        text: '\$800 ',
+                        text: '95%',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 13,
-                          color: Theme.of(context).colorScheme.primary,
+                          color: Theme
+                              .of(context)
+                              .colorScheme
+                              .primary,
                         ),
                         children: [
                           TextSpan(
-                            text: '/Month',
+                            text:
+                            " $unit",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 13,
-                              color: Theme.of(context)
+                              color: Theme
+                                  .of(context)
                                   .colorScheme
                                   .secondary
                                   .withOpacity(0.8),
@@ -205,7 +227,7 @@ class DashBoardPropertiesCard extends StatelessWidget {
                       ),
                     ),
                     const Text(
-                      'House Name',
+                      'CSE 1234',
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                       style: TextStyle(
@@ -213,11 +235,12 @@ class DashBoardPropertiesCard extends StatelessWidget {
                         fontSize: 15,
                       ),
                     ),
-                    const Row(
+                    Row(
                       children: [
-                        Icon(Icons.location_on_outlined),
-                        Text(
-                          'House Address',
+                        icon,
+                        const SizedBox(width: 5),
+                        const Text(
+                          'Online',
                           overflow: TextOverflow.ellipsis,
                           maxLines: 1,
                         ),
@@ -229,19 +252,23 @@ class DashBoardPropertiesCard extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 13,
-                          color: Theme.of(context)
+                          color: Theme
+                              .of(context)
                               .colorScheme
                               .secondary
                               .withOpacity(0.8),
                         ),
-                        text: 'Landlord : ',
+                        text: 'Faculty Name : ',
                         children: [
                           TextSpan(
-                            text: 'Shariful Islam',
+                            text: 'Sazzad Bhuiya',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 13,
-                              color: Theme.of(context).colorScheme.primary,
+                              color: Theme
+                                  .of(context)
+                                  .colorScheme
+                                  .primary,
                             ),
                           ),
                         ],
@@ -374,5 +401,44 @@ class DashBoardPropertiesCard extends StatelessWidget {
         ),
       ),
     );
+  }
+
+
+  String? getUnit() {
+    String? naming = '';
+    switch (cardType) {
+      case CardType.classes:
+        naming = "marks";
+        break;
+      case CardType.courses:
+        naming = "attendance";
+        break;
+      case CardType.assignments:
+        naming = "due";
+        break;
+      case CardType.notices:
+        naming = null;
+        break;
+      case CardType.exams:
+        naming = "score";
+        break;
+    }
+    return naming;
+  }
+
+  Icon getIcon(){
+    switch(cardType){
+      case CardType.courses:
+        return const Icon(Icons.book_outlined);
+      case CardType.assignments:
+        return const Icon(Icons.note_outlined);
+      case CardType.notices:
+        return const Icon(Icons.notifications_outlined);
+      case CardType.exams:
+        return const Icon(Icons.night_shelter_outlined);
+      case CardType.classes:
+        return const Icon(Icons.edit_outlined);
+    }
+
   }
 }

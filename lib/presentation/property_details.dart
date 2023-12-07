@@ -38,7 +38,7 @@ class PropertyDetails extends StatelessWidget {
                     // StretchMode.fadeTitle,
                   ],
                   title: Text(
-                    'Jahanara Manjil',
+                    'SWE Lab',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Theme.of(context).primaryColor,
@@ -54,18 +54,21 @@ class PropertyDetails extends StatelessWidget {
                       children: [
                         SizedBox(height: 60),
                         SeparatedChip(
-                          icon: Icons.turn_right_outlined,
-                          label: '1-C',
+                          icon: Icons.calendar_month,
+                          label: '12 july 2023',
                         ),
                         SeparatedChip(
-                            icon: Icons.location_on_outlined, label: 'Gulshan'),
+                          icon: Icons.location_on_outlined,
+                          label: 'Permanent Campus',
+                        ),
                         SeparatedChip(
-                            icon: Icons.local_post_office_outlined,
-                            label: '1100'),
+                          icon: Icons.person_2_outlined,
+                          label: 'Sazzad Hossain Bhuiya',
+                        ),
                         // SeparatedChip(icon: Icons.money, label: '15,000'),
                         SeparatedChip(
-                          icon: Icons.tab_rounded,
-                          label: 'total unit number : 2',
+                          icon: Icons.people_alt_outlined,
+                          label: 'MD AL MOMIN MOSTAFA',
                         ),
 
                         // SeparatedChip(
@@ -112,7 +115,7 @@ class PropertyDetails extends StatelessWidget {
               ),
               SliverToBoxAdapter(
                 child: Text(
-                  'List of Units',
+                  'List of Classes',
                   style: AppStyle.headingTextStyle,
                 ),
               ),

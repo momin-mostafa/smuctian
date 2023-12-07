@@ -42,16 +42,18 @@ class LoginView extends StatelessWidget {
                   // ),
                   // const SizedBox(width: 2),
                   Container(
+                    padding: EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
                       color: Theme.of(context).primaryColor.withOpacity(0.1),
                     ),
-                    width: MediaQuery.of(context).size.width * 0.5,
+                    width: MediaQuery.of(context).size.width * 0.8,
                     child: TextField(
                       controller:context.read<LoginProvider>().uiState.phoneNumber,
                       decoration: const InputDecoration(
-                        hintText: '1996304242',
+                        hintText: '1963061001',
                         hintStyle: TextStyle(fontSize: 20),
+                        // labelText: "ID",
                       ),
                     ),
                   ),

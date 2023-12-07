@@ -26,7 +26,7 @@ class Settings extends StatelessWidget {
                 ),
               ),
               automaticallyImplyLeading: false,
-              title: Text('Settings'),
+              title: Text('Menu'),
               leadingWidth: 0,
               centerTitle: false,
               pinned: true,
@@ -55,12 +55,12 @@ class Settings extends StatelessWidget {
                       ),
                       const SizedBox(height: 20.0),
                       const CustomTile(
-                        title: 'My Members',
+                        title: 'My Classmates',
                         leadingIcon: Icons.add,
                         svgUrl: 'members.svg',
                       ),
                       CustomTile(
-                        title: 'My Properties',
+                        title: 'Course Enrollment',
                         leadingIcon: Icons.add,
                         svgUrl: 'properties.svg',
                         onTap: () {
@@ -74,14 +74,20 @@ class Settings extends StatelessWidget {
                         },
                       ),
                       const CustomTile(
-                        title: 'Tenants',
+                        title: 'Alumni',
                         leadingIcon: Icons.add,
                         svgUrl: 'tenant.svg',
                       ),
+
                       const CustomTile(
-                        title: 'App Settings',
+                        title: 'CG Calculator',
                         leadingIcon: Icons.add,
-                        svgUrl: 'settings.svg',
+                        svgUrl: 'cgCalc.svg',
+                      ),
+                      const CustomTile(
+                        title: 'Bus Tracker',
+                        leadingIcon: Icons.add,
+                        svgUrl: 'cgCalc.svg',
                       ),
                       const CustomTile(
                         title: 'Activity',
@@ -93,6 +99,11 @@ class Settings extends StatelessWidget {
                         leadingIcon: Icons.add,
                         svgUrl: 'history.svg',
                         onTap: ()=>customPop(context),
+                      ),
+                      const CustomTile(
+                        title: 'App Settings',
+                        leadingIcon: Icons.add,
+                        svgUrl: 'settings.svg',
                       ),
                       CustomTile(
                         onTap: () {

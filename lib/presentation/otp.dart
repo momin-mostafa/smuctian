@@ -22,11 +22,11 @@ class OtpView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
-                'OTP Verification Screen',
+                'Password',
                 style: AppStyle.loginHeaderTextField,
               ),
-              Text(
-                  'Enter OTP code sent to ${context.read<LoginProvider>().uiState.countryCode.text} ${context.read<LoginProvider>().uiState.phoneNumber.text}'),
+              const Text(
+                  'Enter pass code'),
               const SizedBox(height: 20),
               // const TextField(
               //   decoration: InputDecoration(

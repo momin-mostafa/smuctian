@@ -15,11 +15,10 @@ class Home extends StatelessWidget {
         SliverAppBar.medium(
           automaticallyImplyLeading: false,
           flexibleSpace: FlexibleSpaceBar(
-            title:Text(
+            title: Text(
               'Tamim Mostafa',
               style: Theme.of(context).textTheme.titleLarge,
             ),
-
             background: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -89,6 +88,35 @@ class Home extends StatelessWidget {
                         image: AssetImage('assets/images/house1.jpg'),
                       ),
                     ),
+                    child: Card(
+                      color: Theme.of(context).primaryColor.withOpacity(0.3),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Text(
+                              "SMUCT_Labyrinth_Leets",
+                              style:
+                                  Theme.of(context).textTheme.titleMedium?.copyWith(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                            ),
+                            Text(
+                              "The team will participate in ICPC the event tomorrow (November 3, 2023)",
+                              style:
+                                  Theme.of(context).textTheme.titleSmall?.copyWith(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                   Positioned(
                     top: 10,
@@ -140,8 +168,12 @@ class Home extends StatelessWidget {
                         );
                       },
                     ),
-                    const DashBoardPropertiesCard(),
-                    const DashBoardPropertiesCard(),
+                    const DashBoardPropertiesCard(
+                      cardType: CardType.courses,
+                    ),
+                    const DashBoardPropertiesCard(
+                      cardType: CardType.courses,
+                    ),
                   ],
                 ),
               ),
@@ -149,7 +181,7 @@ class Home extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: SectionHeader(
-                label: 'TO LET',
+                label: 'My Exams',
                 onTap: () {},
               ),
             ),
@@ -159,9 +191,69 @@ class Home extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    DashBoardPropertiesCard(),
-                    DashBoardPropertiesCard(),
-                    DashBoardPropertiesCard(),
+                    DashBoardPropertiesCard(
+                      cardType: CardType.exams,
+                    ),
+                    DashBoardPropertiesCard(
+                      cardType: CardType.exams,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: SectionHeader(
+                label: 'Assignments',
+                onTap: () {},
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 8.0),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    DashBoardPropertiesCard(
+                      cardType: CardType.assignments,
+                    ),
+                    DashBoardPropertiesCard(
+                      cardType: CardType.assignments,
+                    ),
+                    DashBoardPropertiesCard(
+                      cardType: CardType.assignments,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: SectionHeader(
+                label: 'Notices',
+                onTap: () {},
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 8.0),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    DashBoardPropertiesCard(
+                      cardType: CardType.notices,
+                    ),
+                    DashBoardPropertiesCard(
+                      cardType: CardType.notices,
+                    ),
+                    DashBoardPropertiesCard(
+                      cardType: CardType.notices,
+                    ),
+                    DashBoardPropertiesCard(
+                      cardType: CardType.notices,
+                    ),
                   ],
                 ),
               ),

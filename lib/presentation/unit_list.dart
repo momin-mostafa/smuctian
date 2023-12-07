@@ -136,7 +136,7 @@ class UnitTile extends StatelessWidget {
                               const Padding(
                                 padding: EdgeInsets.only(top: 10.0, left: 60),
                                 child: Text(
-                                  'Unit Name',
+                                  'Class 1',
                                   style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.w200),
@@ -163,13 +163,13 @@ class UnitTile extends StatelessWidget {
                                                     .width *
                                                 0.4,
                                             child: const Text(
-                                              'Unit Holder Name',
+                                              'Material Name',
                                               maxLines: 1,
                                               overflow: TextOverflow.ellipsis,
                                             ),
                                           ),
-                                          const Text('Unit Holder Profile ID'),
-                                          const Text('Cell : 01996304242'),
+                                          const Text('Material Type'),
+                                          // const Text('Attendance : '),
                                         ],
                                       ),
                                     ),
@@ -185,8 +185,8 @@ class UnitTile extends StatelessWidget {
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                            Text('Family Members : 1'),
-                                            Text('Sublets counts : 0'),
+                                            Text('Total Classes : 1'),
+                                            Text('Attended : 1'),
                                           ],
                                         ),
                                       ),
@@ -216,7 +216,7 @@ class UnitTile extends StatelessWidget {
                                     ),
                                     child: TextButton(
                                       onPressed: () => customPop(context),
-                                      child: const Text('Release'),
+                                      child: const Text('Review'),
                                     ),
                                   ),
                                 ),
@@ -227,7 +227,7 @@ class UnitTile extends StatelessWidget {
                             top: 0,
                             left: 0,
                             child: IconButton.outlined(
-                              tooltip: 'Remove This Unit',
+                              tooltip: 'Remove This Class Material',
                               onPressed: () {},
                               icon: const Icon(
                                 Icons.delete,
@@ -247,15 +247,16 @@ class UnitTile extends StatelessWidget {
                 const Card(
                   child: Padding(
                     padding: EdgeInsets.all(8.0),
-                    child: Text("Current Rent : 7000"),
+                    child: Text("Contact CR"),
                   ),
                 ),
                 Row(
                   children: [
+                    // Divider(),
                     Container(
                       height: 2,
                       color: Theme.of(context).primaryColor,
-                      width: MediaQuery.of(context).size.width * 0.38,
+                      width: MediaQuery.of(context).size.width * 0.52,
                     ),
                     IconButton(
                       onPressed: () {},

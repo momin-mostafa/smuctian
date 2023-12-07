@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '/routing/routings.dart';
 import '/styles.dart';
 
-
 class LandingView extends StatelessWidget {
   const LandingView({super.key});
 
@@ -33,11 +32,11 @@ class LandingView extends StatelessWidget {
             Column(
               children: [
                 Text(
-                  "Welcome To Tenant Management",
+                  "Welcome To SMUCTian",
                   style: AppStyle.headingTextStyle,
                 ),
                 Text(
-                  'Manage all tenants from single place',
+                  'Find your classes, notices, classmates,  alumni, bus location and other varsity stuff in single place',
                   style: AppStyle.subHeaderTextStyle,
                 ),
               ],
@@ -51,11 +50,8 @@ class LandingView extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: ()async {
-          Navigator.popAndPushNamed(
-            context,
-            Routes.instance.login
-          );
+        onPressed: () async {
+          Navigator.popAndPushNamed(context, Routes.instance.login);
         },
         child: const Icon(Icons.arrow_forward),
       ),

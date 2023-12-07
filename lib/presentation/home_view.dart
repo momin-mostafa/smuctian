@@ -4,7 +4,6 @@ import 'house_list.dart';
 
 import 'house_intake.dart';
 import 'profile.dart';
-import 'property_details.dart';
 import 'settings.dart';
 
 import 'home.dart';
@@ -39,22 +38,23 @@ class _HomeViewState extends State<HomeView> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,// add this line
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.location_city_outlined),
-            label: 'Assets',
+            icon: Icon(Icons.flight_class_rounded),
+            label: 'Classroom',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: Icon(Icons.menu),
+            label: 'Menu',
           ),
         ],
         currentIndex: selectedIndex,
@@ -82,7 +82,7 @@ class _HomeViewState extends State<HomeView> {
               Icons.person_outline,
               color: Theme.of(context).primaryColor,
             ),
-            label: 'Person Info Intake',
+            label: 'Faculty Intake',
           ),
           ActionButton(
             onPressed: () {
@@ -97,7 +97,7 @@ class _HomeViewState extends State<HomeView> {
               Icons.house_outlined,
               color: Theme.of(context).primaryColor,
             ),
-            label: 'House Info Intake',
+            label: 'Course Intake',
           ),
         ],
       ),

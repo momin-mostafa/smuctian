@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 class AppTheme {
   static var colorScheme = ColorScheme.fromSeed(seedColor: Colors.green);
   static ThemeData lightTheme = ThemeData(
+    pageTransitionsTheme: const PageTransitionsTheme(
+      builders: <TargetPlatform, PageTransitionsBuilder>{
+        TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+        TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+      },
+    ),
     colorScheme: colorScheme,
     // scaffoldBackgroundColor: Colors.blueAccent.shade100,
     appBarTheme: AppBarTheme(
@@ -33,23 +39,19 @@ class AppTheme {
       ),
       alignLabelWithHint: true,
     ),
-    listTileTheme:  ListTileThemeData(
-      // contentPadding: const EdgeInsets.only(left: 10),
-      // shape: RoundedRectangleBorder(
-      //   side: BorderSide(width: 2, color: colorScheme.outline.withOpacity(0.1)),
-      //   borderRadius: BorderRadius.circular(25),
-      // ),
-      titleTextStyle:  TextStyle(
-        fontWeight: FontWeight.bold,
-        color: colorScheme.primary.withOpacity(0.8),
-        fontSize: 17,
-      ),
-      subtitleTextStyle: const TextStyle().copyWith(
-        fontWeight: FontWeight.w100,
-        color: colorScheme.secondary.withOpacity(0.8),
-        fontSize: 12
-      )
-    ),
+    listTileTheme: ListTileThemeData(
+        // contentPadding: const EdgeInsets.only(left: 10),
+        // shape: RoundedRectangleBorder(
+        //   side: BorderSide(width: 2, color: colorScheme.outline.withOpacity(0.1)),
+        //   borderRadius: BorderRadius.circular(25),
+        // ),
+        titleTextStyle: TextStyle(
+          fontWeight: FontWeight.bold,
+          color: colorScheme.primary.withOpacity(0.8),
+          fontSize: 17,
+        ),
+        subtitleTextStyle: const TextStyle().copyWith(
+            fontWeight: FontWeight.w600, color: Colors.black, fontSize: 12)),
     expansionTileTheme: const ExpansionTileThemeData(
       childrenPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
     ),
@@ -71,10 +73,8 @@ class AppTheme {
       type: BottomNavigationBarType.fixed,
     ),
 
-
-    floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      shape: CircleBorder()
-    ),
+    floatingActionButtonTheme:
+        const FloatingActionButtonThemeData(shape: CircleBorder()),
 
     useMaterial3: true,
   );

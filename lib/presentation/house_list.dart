@@ -12,7 +12,7 @@ class AssetList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('All Property List'),
+        title: const Text('Classrooms'),
         actions: [
           IconButton(
             onPressed: () {
@@ -46,19 +46,19 @@ class AssetList extends StatelessWidget {
 
 List<Map<String, dynamic>> demoPropertyList = [
   {
-    'name': '14-E',
+    'name': 'System Design',
     'img': 'apartment-svgrepo-com.svg',
-    'loc': '14-E, Confidence Center, Shahjadpur'
+    'loc': '1405'
   },
   {
-    'name': 'Jahanara Manjil',
+    'name': 'Software Architecture',
     'img': 'building-2-svgrepo-com.svg',
-    'loc': 'Khilbarir Tek, Bhatara, Dhaka'
+    'loc': '1607'
   },
   {
-    'name': 'Ma er dua',
+    'name': 'Software Engineering Lab',
     'img': 'shop-svgrepo-com.svg',
-    'loc': 'Pragati Sharani, Pran Center, Gulshan'
+    'loc': 'Online'
   },
 ];
 

@@ -34,21 +34,21 @@ class _UnitDetailsState extends State<UnitDetails> {
                   children: [
                     const SeparatedChip(
                       icon: Icons.house_outlined,
-                      label: 'E-14 : Rasheda Begom',
+                      label: 'Faculty : Rasheda Begom',
                     ),
                     IconButton.filled(
                       onPressed: () {},
-                      icon: const Icon(Icons.call),
-                      tooltip: 'Call Rasheda Begum',
+                      icon: const Icon(Icons.person),
+                      tooltip: 'Call Faculty',
                     )
                   ],
                 ),
                 const SeparatedChip(
                     icon: Icons.location_on_outlined,
-                    label: 'Khil Barir Tek, Vatara, Dhaka'),
-                const SeparatedChip(icon: Icons.money, label: '16000 BDT'),
+                    label: 'Permanent Campus'),
+                const SeparatedChip(icon: Icons.present_to_all_rounded, label: '70% Attendance'),
                 const SeparatedChip(
-                    icon: Icons.tab_rounded, label: 'total member : 7'),
+                    icon: Icons.tab_rounded, label: 'total class members : 7'),
               ],
             ),
           ),
@@ -80,12 +80,12 @@ class _UnitDetailsState extends State<UnitDetails> {
                             const TabBar(
                               tabs: [
                                 Tab(
-                                  icon: Icon(Icons.people),
-                                  text: "Members",
+                                  icon: Icon(Icons.notes_sharp),
+                                  text: "Notes",
                                 ),
                                 Tab(
                                   icon: Icon(Icons.doorbell_rounded),
-                                  text: "Sublets",
+                                  text: "Lecture",
                                 ),
                                 Tab(
                                   icon: Icon(Icons.more_horiz),
@@ -126,26 +126,26 @@ class _UnitDetailsState extends State<UnitDetails> {
                                       Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: Text(
-                                          'Driver',
+                                          'Class Objective',
                                           style: AppStyle.headingTextStyle,
                                         ),
                                       ),
                                       const ListTile(
                                         title: Text(
-                                          'Driver name',
+                                          'Objective Title',
                                         ),
-                                        subtitle: Text('+880 171 823 113'),
+                                        subtitle: Text('To know how software...'),
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: Text(
-                                          'Helping Hand',
+                                          'References',
                                           style: AppStyle.headingTextStyle,
                                         ),
                                       ),
                                       const ListTile(
-                                        title: Text('Helping Hand name'),
-                                        subtitle: Text('+880 171 823 113'),
+                                        title: Text('Object Oriented Programming in CPP'),
+                                        subtitle: Text('Robert Lafore'),
                                       )
                                     ],
                                   ),
@@ -291,8 +291,8 @@ class _UnitDetailsState extends State<UnitDetails> {
             ),
             onPressed: () {},
             heroTag: null,
-            label: const Text('Add People'),
-            icon: const Icon(Icons.people_alt_outlined),
+            label: const Text('Add Notes'),
+            icon: const Icon(Icons.note_add),
 
           ),
           FloatingActionButton.extended(
@@ -301,8 +301,8 @@ class _UnitDetailsState extends State<UnitDetails> {
             ),
             onPressed: () {},
             heroTag: null,
-            label: const Text('Add Sublet'),
-            icon: const Icon(Icons.doorbell_outlined),
+            label: const Text('Add PDF'),
+            icon: const Icon(Icons.picture_as_pdf),
           ),
           FloatingActionButton.extended(
             shape: RoundedRectangleBorder(
@@ -382,17 +382,17 @@ class UnitMemberTile extends StatelessWidget {
     return Card(
       child: ListTile(
         visualDensity: VisualDensity.compact,
-        title: const Text('Md Al momin mostafa'),
+        title: const Text('Software Design'),
         subtitle: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Divider(),
-            Text('Software Engineer'),
-            Divider(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [Text('Age : 21'), Text('relation : Father')],
-            ),
+            Text('Lecture 1'),
+            // Divider(),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //   children: [Text('Age : 21'), Text('relation : Father')],
+            // ),
           ],
         ),
         leading: IconButton(

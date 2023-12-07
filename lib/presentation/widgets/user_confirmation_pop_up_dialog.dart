@@ -21,24 +21,24 @@ void customPop(context) {
               // crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                CircleAvatar(
-                  radius: MediaQuery.of(context).size.width * 0.2,
-                ),
+                // CircleAvatar(
+                //   radius: MediaQuery.of(context).size.width * 0.2,
+                // ),
                 const SizedBox(height: 10),
                 const Column(
                   children: [
                     InformationTile(label: 'Name', data: 'Tamim Mostafa'),
-                    InformationTile(label: 'Marital Status', data: 'Single'),
-                    // InformationTile(label: 'Age', data: '24'),
-                    InformationTile(
-                        label: 'Father\'s Name,', data: 'Mr Mostafa'),
+                    // InformationTile(label: 'Marital Status', data: 'Single'),
+                    // // InformationTile(label: 'Age', data: '24'),
+                    // InformationTile(
+                    //     label: 'Father\'s Name,', data: 'Mr Mostafa'),
                     // InformationTile(label: 'Mother\'s Name,', data: 'Mrs Mostafa'),
-                    InformationTile(
-                        label: 'Previous Landowner Name,', data: 'Mr. Mostafa'),
-                    InformationTile(
-                        label: 'Current Landowner Name', data: 'Mr. Mostafa'),
-                    InformationTile(
-                        label: 'Current Landowner Name', data: 'Mr. Mostafa'),
+                    // InformationTile(
+                    //     label: 'Previous Landowner Name,', data: 'Mr. Mostafa'),
+                    // InformationTile(
+                    //     label: 'Current Landowner Name', data: 'Mr. Mostafa'),
+                    // InformationTile(
+                    //     label: 'Current Landowner Name', data: 'Mr. Mostafa'),
                   ],
                 ),
                 const SizedBox(height: 10),
@@ -47,7 +47,7 @@ void customPop(context) {
                     Navigator.pushNamed(context, Routes.instance.driverInfoForm);
                   },
                   child: const Text(''
-                      'Add Other Details'),
+                      'Add Notes'),
                 ),
                 const SizedBox(height: 10),
                 Row(
@@ -55,11 +55,11 @@ void customPop(context) {
                   children: [
                     ElevatedButton(
                       onPressed: () {},
-                      child: const Text('Deny'),
+                      child: const Text('Cancel'),
                     ),
                     ElevatedButton(
                       onPressed: () {},
-                      child: const Text('Assign'),
+                      child: const Text('Add'),
                     ),
                   ],
                 ),
