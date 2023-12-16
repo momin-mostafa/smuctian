@@ -1,9 +1,10 @@
-import 'dart:collection';
 
 import 'package:flutter/material.dart';
+import 'package:smuctian/application/bustracker.p.dart';
+import 'package:smuctian/application/classroom.p.dart';
+import 'package:smuctian/application/home.p.dart';
 import 'package:smuctian/application/login_provider.dart';
-import 'package:smuctian/domain/profile/profile_model.dart';
-import 'package:smuctian/domain/profile/user_profile_singleton.dart';
+import 'package:smuctian/application/profile.p.dart';
 import 'package:smuctian/presentation/Profile_Intake_view.dart';
 import 'package:smuctian/presentation/forms/driver_info_intake_form.dart';
 import 'package:smuctian/presentation/forms/emergency_contact_info_intake_form.dart';
@@ -36,23 +37,38 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<LoginProvider>(
           create: (context) => LoginProvider(),
         ),
-        // Provider<SomethingElse>(create: (_) => SomethingElse()),
-        // Provider<AnotherThing>(create: (_) => AnotherThing()),
+        ChangeNotifierProvider<HomeProvider>(
+          create: (_) => HomeProvider(),
+        ),
+        ChangeNotifierProvider<ClassroomProvider>(
+          create: (_) => ClassroomProvider(),
+        ),
+
+        ChangeNotifierProvider<ProfileProvider>(
+          create: (_) => ProfileProvider(),
+        ),
+        ChangeNotifierProvider<BusTrackerProvider>(
+          create: (_) => BusTrackerProvider(),
+        ),
       ],
       child: MaterialApp(
         routes: {
           Routes.instance.landing: (context) => const LandingView(),
-          Routes.instance.login : (context)=> const LoginView(),
-          Routes.instance.otp :  (context)=> const OtpView(),
-          Routes.instance.home :  (context)=> const HomeView(),
-          Routes.instance.propertyList :  (context)=> const AssetList(),
-          Routes.instance.subletMemberListView : (context)=> const SubletMemberView(),
-          Routes.instance.addProfile: (context)=> const ProfileIntakeView(),
-          Routes.instance.driverInfoForm: (context)=> const DriverInfoIntakeForm(),
-          Routes.instance.helpingHandInfoForm: (context)=> const HelpingHandInfoIntakeForm(),
-          Routes.instance.emergencyInfoForm: (context)=> const EmergencyContactInfoIntakeForm(),
-          Routes.instance.memberInfoForm: (context)=> const MemberAddForm(),
-          Routes.instance.map: (context)=>  const MapLocationSelector(),
+          Routes.instance.login: (context) => const LoginView(),
+          Routes.instance.otp: (context) => const OtpView(),
+          Routes.instance.home: (context) => const HomeView(),
+          Routes.instance.propertyList: (context) => const AssetList(),
+          Routes.instance.subletMemberListView: (context) =>
+              const SubletMemberView(),
+          Routes.instance.addProfile: (context) => const ProfileIntakeView(),
+          Routes.instance.driverInfoForm: (context) =>
+              const DriverInfoIntakeForm(),
+          Routes.instance.helpingHandInfoForm: (context) =>
+              const HelpingHandInfoIntakeForm(),
+          Routes.instance.emergencyInfoForm: (context) =>
+              const EmergencyContactInfoIntakeForm(),
+          Routes.instance.memberInfoForm: (context) => const MemberAddForm(),
+          Routes.instance.map: (context) => const MapLocationSelector(),
         },
         title: 'Flutter Demo',
         theme: AppTheme.lightTheme,

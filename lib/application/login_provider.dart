@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:smuctian/data/remote/login_service.dart';
-import 'package:smuctian/domain/auth/user_auth.dart';
-import 'package:smuctian/domain/global_singleton.dart';
 import 'package:smuctian/routing/routings.dart';
 
 class LoginProvider extends ChangeNotifier {
-  AuthService authService = AuthService();
+  // AuthService authService = AuthService();
   LoginState uiState = LoginState();
   void login(context) async {
     // UserAuthModel? model = await authService.login(

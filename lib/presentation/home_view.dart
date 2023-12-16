@@ -31,9 +31,7 @@ class _HomeViewState extends State<HomeView> {
         children: const [
           Home(),
           AssetList(),
-          // PropertyDetails(),
           Profile(),
-          // DashBoard(),
           Settings(),
         ],
       ),
