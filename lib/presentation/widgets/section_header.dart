@@ -11,8 +11,8 @@ class SectionHeader extends StatelessWidget {
       children: [
         Text(
           label,
-          style: TextStyle(
-            color: Theme.of(context).primaryColor,
+          style: const TextStyle(
+            color: Color(0xFF09203F),
             fontSize: 22,
             fontWeight: FontWeight.bold,
           ),

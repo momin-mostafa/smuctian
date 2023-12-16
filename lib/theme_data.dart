@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static var colorScheme = ColorScheme.fromSeed(seedColor: Colors.green);
+  static var colorScheme = ColorScheme.fromSeed(seedColor:
+  // Colors.blue
+    const Color(0xFF1e3c72)
+  );
   static ThemeData lightTheme = ThemeData(
     pageTransitionsTheme: const PageTransitionsTheme(
       builders: <TargetPlatform, PageTransitionsBuilder>{
@@ -10,6 +13,11 @@ class AppTheme {
       },
     ),
     colorScheme: colorScheme,
+
+    textTheme: TextTheme(
+
+    ),
+
     // scaffoldBackgroundColor: Colors.blueAccent.shade100,
     appBarTheme: AppBarTheme(
       backgroundColor: colorScheme.inversePrimary,

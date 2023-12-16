@@ -20,7 +20,7 @@ class _UnitDetailsState extends State<UnitDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green.shade100,
+      backgroundColor: Theme.of(context).secondaryHeaderColor,
       body: Stack(
         children: [
           Padding(
