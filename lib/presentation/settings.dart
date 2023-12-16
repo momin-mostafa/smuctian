@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smuctian/presentation/alumni.view.dart';
+import 'package:smuctian/presentation/cg_calc.view.dart';
+import 'package:smuctian/presentation/payment.v.dart';
 import 'house_list.dart';
 import 'profile.dart';
 import 'registration.dart';
@@ -67,22 +70,49 @@ class Settings extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  const AssetList(),
+                              builder: (context) => const AssetList(),
                             ),
                           );
                         },
                       ),
-                      const CustomTile(
+                      CustomTile(
                         title: 'Alumni',
                         leadingIcon: Icons.add,
                         svgUrl: 'tenant.svg',
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const AlumniView(),
+                            ),
+                          );
+                        },
                       ),
-
-                      const CustomTile(
+                      CustomTile(
                         title: 'CG Calculator',
                         leadingIcon: Icons.add,
                         svgUrl: 'cgCalc.svg',
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const CGCalcView(),
+                            ),
+                          );
+                        },
+                      ),
+                      CustomTile(
+                        title: 'Payment Calculator',
+                        leadingIcon: Icons.add,
+                        svgUrl: 'cgCalc.svg',
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const PaymentCalcView(),
+                            ),
+                          );
+                        },
                       ),
                       const CustomTile(
                         title: 'Bus Tracker',
@@ -98,7 +128,7 @@ class Settings extends StatelessWidget {
                         title: 'History',
                         leadingIcon: Icons.add,
                         svgUrl: 'history.svg',
-                        onTap: ()=>customPop(context),
+                        onTap: () => customPop(context),
                       ),
                       const CustomTile(
                         title: 'App Settings',

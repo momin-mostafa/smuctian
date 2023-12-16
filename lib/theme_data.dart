@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static var colorScheme = ColorScheme.fromSeed(seedColor:
-  // Colors.blue
-    const Color(0xFF1e3c72)
-  );
+  static var colorScheme = ColorScheme.fromSeed(
+      seedColor:
+          // Colors.blue
+          const Color(0xFF1e3c72));
   static ThemeData lightTheme = ThemeData(
     pageTransitionsTheme: const PageTransitionsTheme(
       builders: <TargetPlatform, PageTransitionsBuilder>{
@@ -13,10 +13,6 @@ class AppTheme {
       },
     ),
     colorScheme: colorScheme,
-
-    textTheme: TextTheme(
-
-    ),
 
     // scaffoldBackgroundColor: Colors.blueAccent.shade100,
     appBarTheme: AppBarTheme(
@@ -70,11 +66,14 @@ class AppTheme {
     ),
     filledButtonTheme: FilledButtonThemeData(
       style: ButtonStyle(
-          textStyle: const MaterialStatePropertyAll<TextStyle?>(
-              TextStyle(fontSize: 16)),
-          minimumSize: const MaterialStatePropertyAll<Size?>(Size(120, 47)),
-          shape: MaterialStatePropertyAll<OutlinedBorder>(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)))),
+        textStyle:
+            const MaterialStatePropertyAll<TextStyle?>(TextStyle(fontSize: 16)),
+        shape: MaterialStatePropertyAll<OutlinedBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
+        ),
+      ),
     ),
 
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(

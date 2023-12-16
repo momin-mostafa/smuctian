@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
 class SectionHeader extends StatelessWidget {
-  const SectionHeader({super.key, this.label = '', this.onTap});
+  const SectionHeader(
+      {super.key, this.label = '', this.onTap, this.trailingLabel = "See All"});
+
   final String label;
   final VoidCallback? onTap;
+  final String trailingLabel;
+
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
@@ -17,7 +21,10 @@ class SectionHeader extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        TextButton(onPressed: onTap, child: const Text('See All'))
+        TextButton(
+          onPressed: onTap,
+          child: Text(trailingLabel),
+        )
       ],
     );
   }

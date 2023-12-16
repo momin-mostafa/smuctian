@@ -13,7 +13,7 @@ class CGCalcProvider with ChangeNotifier {
   double semesterFeeTotal = 18500;
   double registrationFeeTotal = 2000;
   double previousSemesterResult = 3.9;
-  List<double> listOfAvailableWaiver = [2000, 1000];
+  List<double> listOfAvailableWaiver = [1, 30];
   double sscResult = 4.68;
   double hscResult = 4.33;
   double prevTotalRegisteredCredit = 18.0;
@@ -22,22 +22,18 @@ class CGCalcProvider with ChangeNotifier {
   bool sscGolden = false;
   bool hscGolden = false;
 
+  CostCalculationFeature get cost =>
+      costCalculation = CostCalculationFeature(
+          semesterfeeTotal: semesterFeeTotal,
+          registrationFee: registrationFeeTotal,
+          previousSemesterResult: previousSemesterResult,
+          listOfAvailableWaiver: listOfAvailableWaiver,
+          sscResult: sscResult,
+          hscResult: hscResult,
+          prevTotalRegisteredCredit: prevTotalRegisteredCredit,
+          newIntakeCredit: newIntakeCredit,
+          retakeCredit: retakeCredit);
 
-
-
-  CGCalcProvider(){
-    costCalculation = CostCalculationFeature(
-        semesterfeeTotal: semesterFeeTotal,
-        registrationFee: registrationFeeTotal,
-        previousSemesterResult: previousSemesterResult,
-        listOfAvailableWaiver: listOfAvailableWaiver,
-        sscResult: sscResult,
-        hscResult: hscResult,
-        prevTotalRegisteredCredit: prevTotalRegisteredCredit,
-        newIntakeCredit: newIntakeCredit,
-        retakeCredit: retakeCredit);
-  }
-
-
-
+  String get amount => cost.getFinalAmmount().toString();
+  String get highestWaiver => cost.getWaiver().toString();
 }

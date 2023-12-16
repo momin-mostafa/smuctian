@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:smuctian/application/bustracker.p.dart';
+import 'package:smuctian/application/cgcalc/cgcalc.provider.dart';
 import 'package:smuctian/application/classroom.p.dart';
 import 'package:smuctian/application/home.p.dart';
 import 'package:smuctian/application/login_provider.dart';
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<BusTrackerProvider>(
           create: (_) => BusTrackerProvider(),
         ),
+        ChangeNotifierProvider(create: (_)=>CGCalcProvider())
       ],
       child: MaterialApp(
         routes: {

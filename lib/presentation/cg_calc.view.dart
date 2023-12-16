@@ -13,40 +13,43 @@ class CGCalcView extends StatelessWidget {
       ),
       body: Consumer<CGCalcProvider>(
         builder: (context,vm,_) {
-          return Column(
-            children: [
-              TextFormField(
-                controller: vm.registrationPageModelTwo.newIntakeCredit,
-              ),
-              TextFormField(
-                controller: vm.registrationPageModelTwo.previousSemesterResult,
-              ),
-              TextFormField(
-                controller: vm.registrationPageModelTwo.prevTotalRegisteredCredit,
-              ),
-              TextFormField(
-                controller: vm.registrationPageModelTwo.retakeCredit,
-              ),
-              const Divider(),
-              TextFormField(
-                controller: vm.registrationPageModelOne.id,
-              ),
-              TextFormField(
-                controller: vm.registrationPageModelOne.name,
-              ),
-              TextFormField(
-                controller: vm.registrationPageModelOne.departmentName,
-              ),
-              TextFormField(
-                controller: vm.registrationPageModelOne.sscResult,
-              ),
-              TextFormField(
-                controller: vm.registrationPageModelOne.hscResult,
-              ),
-            ],
-          );
+          return Text(vm.registrationFeeTotal.toString());
         }
       ),
     );
   }
 }
+
+
+//Column(
+//             children: [
+//               TextFormField(
+//                 controller: vm.registrationPageModelTwo.newIntakeCredit,
+//               ),
+//               TextFormField(
+//                 controller: vm.registrationPageModelTwo.previousSemesterResult,
+//               ),
+//               TextFormField(
+//                 controller: vm.registrationPageModelTwo.prevTotalRegisteredCredit,
+//               ),
+//               TextFormField(
+//                 controller: vm.registrationPageModelTwo.retakeCredit,
+//               ),
+//               const Divider(),
+//               TextFormField(
+//                 controller: vm.registrationPageModelOne.id,
+//               ),
+//               TextFormField(
+//                 controller: vm.registrationPageModelOne.name,
+//               ),
+//               TextFormField(
+//                 controller: vm.registrationPageModelOne.departmentName,
+//               ),
+//               TextFormField(
+//                 controller: vm.registrationPageModelOne.sscResult,
+//               ),
+//               TextFormField(
+//                 controller: vm.registrationPageModelOne.hscResult,
+//               ),
+//             ],
+//           )
