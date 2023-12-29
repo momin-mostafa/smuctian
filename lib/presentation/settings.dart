@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smuctian/presentation/alumni.view.dart';
 import 'package:smuctian/presentation/cg_calc.view.dart';
 import 'package:smuctian/presentation/payment.v.dart';
-import 'house_list.dart';
+import 'package:smuctian/routing/routings.dart';
 import 'profile.dart';
 import 'registration.dart';
 import '/app.exports.widgets.dart';
@@ -67,12 +67,13 @@ class Settings extends StatelessWidget {
                         leadingIcon: Icons.add,
                         svgUrl: 'properties.svg',
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const AssetList(),
-                            ),
-                          );
+                          Navigator.pushNamed(context, Routes.instance.classList);
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //     builder: (context) => Navigator.pushNamed(context, Routes),
+                          //   ),
+                          // );
                         },
                       ),
                       CustomTile(

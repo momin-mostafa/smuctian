@@ -4,30 +4,29 @@ import 'package:http/http.dart' as http;
 import 'package:smuctian/app_const.dart';
 
 class HttpService {
-  final String _baseUrl = baseUrl;
+  final String _baseUrl = ApiEndpoint.endpoint.baseUrl;
   final Map<String, String>? header;
 
-  HttpService(
-      {this.header});
+  HttpService({this.header});
 
   Future<Map<String, dynamic>> get(String endpoint) async {
-    final response = await http.get(Uri.parse('$baseUrl/$endpoint'));
+    final response = await http.get(Uri.parse('$_baseUrl/$endpoint'));
     return _handleResponse(response);
   }
 
   Future<Map<String, dynamic>> post(String endpoint, dynamic data) async {
     final response = await http.post(
-      Uri.parse('$baseUrl/$endpoint'),
+      Uri.parse('$_baseUrl/$endpoint'),
       body: json.encode(data),
       headers: header ?? {'Content-Type': 'application/json'},
     );
     return _handleResponse(response);
   }
 
-  Future<Map<String, dynamic>> multipartPost(String endpoint,
-      Map<String, dynamic> data) async {
-    final request = http.MultipartRequest(
-        'POST', Uri.parse('$baseUrl/$endpoint'));
+  Future<Map<String, dynamic>> multipartPost(
+      String endpoint, Map<String, dynamic> data) async {
+    final request =
+        http.MultipartRequest('POST', Uri.parse('$_baseUrl/$endpoint'));
 
     // Add fields and files to the request
     data.forEach((key, value) {
@@ -44,7 +43,7 @@ class HttpService {
 
   Future<Map<String, dynamic>> update(String endpoint, dynamic data) async {
     final response = await http.put(
-      Uri.parse('$baseUrl/$endpoint'),
+      Uri.parse('$_baseUrl/$endpoint'),
       body: json.encode(data),
       headers: header ?? {'Content-Type': 'application/json'},
     );
@@ -53,7 +52,7 @@ class HttpService {
 
   Future<Map<String, dynamic>> put(String endpoint, dynamic data) async {
     final response = await http.put(
-      Uri.parse('$baseUrl/$endpoint'),
+      Uri.parse('$_baseUrl/$endpoint'),
       body: json.encode(data),
       headers: header ?? {'Content-Type': 'application/json'},
     );
@@ -61,17 +60,26 @@ class HttpService {
   }
 
   Future<Map<String, dynamic>> delete(String endpoint) async {
-    final response = await http.delete(Uri.parse('$baseUrl/$endpoint'));
+    final response = await http.delete(Uri.parse('$_baseUrl/$endpoint'));
     return _handleResponse(response);
   }
 
   Map<String, dynamic> _handleResponse(http.Response response) {
-    final data = json.decode(response.body);
+    log("response.body : ${response.body}",
+        name: "HttpService._handleResponse");
+    log("response.body.runtimeType : ${response.body.runtimeType}",
+        name: "HttpService._handleResponse");
+    final data = jsonDecode(response.body);
     if (response.statusCode >= 200 && response.statusCode < 300) {
-      return data;
+      if (data is Map<String, dynamic>) {
+        return data;
+      } else {
+        return {"data": data};
+      }
     } else {
       log('Request failed with status: ${response.statusCode}\nbody: ${jsonDecode(response.body)['message']}');
-      throw Exception('Request failed with status: ${response.statusCode}\nbody: ${jsonDecode(response.body)['message']}');
+      throw Exception(
+          'Request failed with status: ${response.statusCode}\nbody: ${jsonDecode(response.body)['message']}');
     }
   }
 }

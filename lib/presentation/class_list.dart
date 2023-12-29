@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
+import 'package:smuctian/application/classroom.p.dart';
 
 import 'house_intake.dart';
-import 'property_details.dart';
 import 'unit_list.dart';
 
-class AssetList extends StatelessWidget {
-  const AssetList({super.key});
+class ClassList extends StatelessWidget {
+  const ClassList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,33 +24,27 @@ class AssetList extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView.builder(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-        itemCount: demoPropertyList.length,
-        itemBuilder: (BuildContext context, int index) => AssetListWidget(
-          name: demoPropertyList[index]['name'],
-          location: demoPropertyList[index]['loc'],
-          logoUrl: demoPropertyList[index]['img'],
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const PropertyDetails(),
-              ),
+      body: Consumer<ClassroomProvider>(builder: (context, vm, _) {
+        return ListView.builder(
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          itemCount: vm.totalClasses.length,
+          itemBuilder: (BuildContext context, int index){
+            var selectedClass = vm.totalClasses[index];
+            return AssetListWidget(
+              name: selectedClass.classTitle ?? 'Null',
+              location: selectedClass.courseCode ?? 'Null',
+              logoUrl: 'apartment-svgrepo-com.svg',
+              onTap: ()=>vm.navigateToClassDetails(context, classRoom: selectedClass),
             );
           },
-        ),
-      ),
+        );
+      }),
     );
   }
 }
 
 List<Map<String, dynamic>> demoPropertyList = [
-  {
-    'name': 'System Design',
-    'img': 'apartment-svgrepo-com.svg',
-    'loc': '1405'
-  },
+  {'name': 'System Design', 'img': 'apartment-svgrepo-com.svg', 'loc': '1405'},
   {
     'name': 'Software Architecture',
     'img': 'building-2-svgrepo-com.svg',

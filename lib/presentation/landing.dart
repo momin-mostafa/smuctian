@@ -30,14 +30,17 @@ class LandingView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
+              mainAxisSize: MainAxisSize.max,
               children: [
                 Text(
                   "Welcome To SMUCTian",
                   style: AppStyle.headingTextStyle,
                 ),
+                const SizedBox(height: 20),
                 Text(
-                  'Find your classes, notices, classmates,  alumni, bus location and other varsity stuff in single place',
+                  'Shaping Minds, Building Futures, Igniting Innovation',
                   style: AppStyle.subHeaderTextStyle,
+                  textAlign: TextAlign.center,
                 ),
               ],
             ),

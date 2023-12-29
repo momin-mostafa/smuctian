@@ -151,7 +151,7 @@ class Home extends StatelessWidget {
                   child: SectionHeader(
                     label: 'My Courses',
                     onTap: () {
-                      Navigator.pushNamed(context, Routes.instance.propertyList);
+                      Navigator.pushNamed(context, Routes.instance.classList);
                     },
                   ),
                 ),

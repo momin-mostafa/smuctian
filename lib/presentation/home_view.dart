@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:smuctian/application/classroom.p.dart';
+import 'package:smuctian/presentation/class_list.dart';
 import '/app.exports.widgets.dart';
-import 'house_list.dart';
 
 import 'house_intake.dart';
 import 'profile.dart';
@@ -30,7 +32,7 @@ class _HomeViewState extends State<HomeView> {
         index: selectedIndex,
         children: const [
           Home(),
-          AssetList(),
+          ClassList(),
           Profile(),
           Settings(),
         ],
@@ -61,6 +63,9 @@ class _HomeViewState extends State<HomeView> {
         onTap: (int index) {
           setState(() {
             selectedIndex = index;
+            if(selectedIndex == 1){
+              context.read<ClassroomProvider>().allClasses();
+            }
           });
         },
       ),

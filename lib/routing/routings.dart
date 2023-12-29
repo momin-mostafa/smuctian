@@ -14,10 +14,10 @@ class Routes {
   var unitList = 'unit-list';
   var unitDetails = 'unit-details';
 
-  var propertyList = 'property-list';
-  var propertyDetails = 'property-details';
+  var classList = 'class-list';
+  var classDetails = 'class-details';
 
-  var driverInfoForm = 'form-driver-info';
+  // var driverInfoForm = 'form-driver-info';
   var emergencyInfoForm = 'form-emergency-contacts-info';
   var helpingHandInfoForm = 'form-helping-hand-info';
   var landLordInfoForm = 'form-land-lord-info';

@@ -10,7 +10,7 @@ class HomeProvider with ChangeNotifier{
   List assignments = [];
   List notices = [];
 
-  getAll()async{
+  Future<void> getAll()async{
     await repo.fetchData();
   }
   getCourses(){}

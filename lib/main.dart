@@ -6,14 +6,15 @@ import 'package:smuctian/application/classroom.p.dart';
 import 'package:smuctian/application/home.p.dart';
 import 'package:smuctian/application/login_provider.dart';
 import 'package:smuctian/application/profile.p.dart';
+import 'package:smuctian/domain/global_singleton.dart';
 import 'package:smuctian/presentation/Profile_Intake_view.dart';
-import 'package:smuctian/presentation/forms/driver_info_intake_form.dart';
+import 'package:smuctian/presentation/class_list.dart';
+import 'package:smuctian/presentation/classroom_details.dart';
 import 'package:smuctian/presentation/forms/emergency_contact_info_intake_form.dart';
 import 'package:smuctian/presentation/forms/helping_hand_info_intake_form.dart';
 import 'package:smuctian/presentation/forms/member_add_view.dart';
 import 'package:smuctian/presentation/sublet_member_view.dart';
 import 'package:smuctian/presentation/home_view.dart';
-import 'package:smuctian/presentation/house_list.dart';
 import 'package:smuctian/presentation/login.dart';
 import 'package:smuctian/presentation/otp.dart';
 import 'package:smuctian/routing/routings.dart';
@@ -23,8 +24,9 @@ import 'package:provider/provider.dart';
 import 'presentation/landing.dart';
 import 'presentation/map_view.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await GlobalAppSingleton.instance.init();
   runApp(const MyApp());
 }
 
@@ -59,12 +61,13 @@ class MyApp extends StatelessWidget {
           Routes.instance.login: (context) => const LoginView(),
           Routes.instance.otp: (context) => const OtpView(),
           Routes.instance.home: (context) => const HomeView(),
-          Routes.instance.propertyList: (context) => const AssetList(),
+          Routes.instance.classList: (context) => const ClassList(),
+          Routes.instance.classDetails: (context) => const ClassDetails(),
           Routes.instance.subletMemberListView: (context) =>
               const SubletMemberView(),
           Routes.instance.addProfile: (context) => const ProfileIntakeView(),
-          Routes.instance.driverInfoForm: (context) =>
-              const DriverInfoIntakeForm(),
+          // Routes.instance.driverInfoForm: (context) =>
+          //     const DriverInfoIntakeForm(),
           Routes.instance.helpingHandInfoForm: (context) =>
               const HelpingHandInfoIntakeForm(),
           Routes.instance.emergencyInfoForm: (context) =>

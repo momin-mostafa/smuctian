@@ -1,18 +1,25 @@
 import 'package:smuctian/domain/model_interface.dart';
 
+// {
+//   "status": 200,
+//   "message": "Password update successfully",
+//   "data": "Successfully updated, check your email:: mominmostafa.g@outlook.com",
+//   "timestamp": "2023-12-29 11:58:57 PM",
+//   "endpoint": "/api/v1/university/auth/update"
+// }
+
 class UserAuthModel implements Model{
   int? status;
   String? message;
-  String? token;
+  String? data;
   User? user;
 
-  UserAuthModel({this.status, this.message, this.token, this.user});
+  UserAuthModel({this.status, this.message, this.data, this.user});
 
   UserAuthModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
-    token = json['token'];
-    user = json['user'] != null ? User.fromJson(json['user']) : null;
+    data = json['data'];
   }
 
   @override
@@ -20,10 +27,7 @@ class UserAuthModel implements Model{
     final Map<String, dynamic> data = {};
     data['status'] = status;
     data['message'] = message;
-    data['token'] = token;
-    if (user != null) {
-      data['user'] = user!.toJson();
-    }
+    data['data'] = data;
     return data;
   }
 }

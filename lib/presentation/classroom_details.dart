@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:smuctian/application/classroom.p.dart';
 import '/styles.dart';
 import 'unit_list.dart';
 import '/app.exports.widgets.dart';
 
-class PropertyDetails extends StatelessWidget {
-  const PropertyDetails({super.key});
+class ClassDetails extends StatelessWidget {
+  const ClassDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var selectedClass = context.read<ClassroomProvider>().selectedClassRoom;
     return Scaffold(
       // appBar: AppBar(),
       body: SafeArea(
@@ -22,7 +25,7 @@ class PropertyDetails extends StatelessWidget {
                 ),
                 // floating: true,
                 pinned: true,
-                expandedHeight: 330,
+                expandedHeight: 360,
                 stretch: true,
                 // bottom: AddressBar(),
                 leading: IconButton.filled(
@@ -38,7 +41,7 @@ class PropertyDetails extends StatelessWidget {
                     // StretchMode.fadeTitle,
                   ],
                   title: Text(
-                    'SWE Lab',
+                    selectedClass?.classTitle ?? '',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Theme.of(context).primaryColor,
@@ -49,26 +52,30 @@ class PropertyDetails extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     padding: const EdgeInsets.all(8.0),
-                    child: const Column(
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 60),
+                        const SizedBox(height: 60),
                         SeparatedChip(
                           icon: Icons.calendar_month,
-                          label: '12 july 2023',
+                          label: selectedClass
+                                  ?.classCreationDateTime?.dateString ??
+                              '',
                         ),
                         SeparatedChip(
                           icon: Icons.location_on_outlined,
-                          label: 'Permanent Campus',
+                          label:
+                              'Permanent Campus: ${selectedClass?.classRoomNumber}'
+                              '',
                         ),
                         SeparatedChip(
                           icon: Icons.person_2_outlined,
-                          label: 'Sazzad Hossain Bhuiya',
+                          label: "Faculty: ${selectedClass?.teacherName}",
                         ),
                         // SeparatedChip(icon: Icons.money, label: '15,000'),
                         SeparatedChip(
-                          icon: Icons.people_alt_outlined,
-                          label: 'MD AL MOMIN MOSTAFA',
+                          icon: Icons.code,
+                          label: 'Course Code: ${selectedClass?.classJoinCode}',
                         ),
 
                         // SeparatedChip(
@@ -135,7 +142,7 @@ class PropertyDetails extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        tooltip: "Add Units",
+        tooltip: "Add Classes",
         child: const Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
