@@ -29,8 +29,8 @@ class BusTracker extends StatelessWidget {
               ],
               options: MapOptions(
                   maxZoom: 17,
-                  center: controller.center,
-                  zoom: 10,
+                  initialCenter: controller.center,
+                  initialZoom: 12,
                   onMapReady: () {
                     controller.mapController.mapEventStream.listen((evt) {});
                     // And any other `MapController` dependent non-movement methods
@@ -81,6 +81,22 @@ class BusTracker extends StatelessWidget {
               child: IconButton.filled(
                 onPressed: () => Navigator.pop(context),
                 icon: const Icon(Icons.arrow_back),
+              ),
+            ),
+            Positioned(
+              top: 60,
+              left: MediaQuery.sizeOf(context).width * 0.375,
+              child: Card(
+                color: Theme.of(context).primaryColor,
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    "Bus Tracker",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
               ),
             )
           ],
