@@ -67,13 +67,8 @@ class Settings extends StatelessWidget {
                         leadingIcon: Icons.add,
                         svgUrl: 'properties.svg',
                         onTap: () {
-                          Navigator.pushNamed(context, Routes.instance.classList);
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => Navigator.pushNamed(context, Routes),
-                          //   ),
-                          // );
+                          Navigator.pushNamed(
+                              context, Routes.instance.classList);
                         },
                       ),
                       CustomTile(
@@ -92,7 +87,7 @@ class Settings extends StatelessWidget {
                       CustomTile(
                         title: 'CG Calculator',
                         leadingIcon: Icons.add,
-                        svgUrl: 'cgCalc.svg',
+                        svgUrl: 'cg.svg',
                         onTap: () {
                           Navigator.push(
                             context,
@@ -115,10 +110,14 @@ class Settings extends StatelessWidget {
                           );
                         },
                       ),
-                      const CustomTile(
+                      CustomTile(
                         title: 'Bus Tracker',
                         leadingIcon: Icons.add,
-                        svgUrl: 'cgCalc.svg',
+                        svgUrl: 'bus.svg',
+                        onTap: () => Navigator.pushNamed(
+                          context,
+                          Routes.instance.busTracker,
+                        ),
                       ),
                       const CustomTile(
                         title: 'Activity',

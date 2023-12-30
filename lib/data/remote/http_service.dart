@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http/http.dart' as http;
 import 'package:smuctian/app_const.dart';
 
@@ -10,21 +11,26 @@ class HttpService {
   HttpService({this.header});
 
   Future<Map<String, dynamic>> get(String endpoint) async {
+    EasyLoading.show();
     final response = await http.get(Uri.parse('$_baseUrl/$endpoint'));
+    EasyLoading.dismiss();
     return _handleResponse(response);
   }
 
   Future<Map<String, dynamic>> post(String endpoint, dynamic data) async {
+    EasyLoading.show();
     final response = await http.post(
       Uri.parse('$_baseUrl/$endpoint'),
       body: json.encode(data),
       headers: header ?? {'Content-Type': 'application/json'},
     );
+    EasyLoading.dismiss();
     return _handleResponse(response);
   }
 
   Future<Map<String, dynamic>> multipartPost(
       String endpoint, Map<String, dynamic> data) async {
+    EasyLoading.show();
     final request =
         http.MultipartRequest('POST', Uri.parse('$_baseUrl/$endpoint'));
 
@@ -38,29 +44,36 @@ class HttpService {
     });
 
     final response = await http.Response.fromStream(await request.send());
+    EasyLoading.dismiss();
     return _handleResponse(response);
   }
 
   Future<Map<String, dynamic>> update(String endpoint, dynamic data) async {
+    EasyLoading.show();
     final response = await http.put(
       Uri.parse('$_baseUrl/$endpoint'),
       body: json.encode(data),
       headers: header ?? {'Content-Type': 'application/json'},
     );
+    EasyLoading.dismiss();
     return _handleResponse(response);
   }
 
   Future<Map<String, dynamic>> put(String endpoint, dynamic data) async {
+    EasyLoading.show();
     final response = await http.put(
       Uri.parse('$_baseUrl/$endpoint'),
       body: json.encode(data),
       headers: header ?? {'Content-Type': 'application/json'},
     );
+    EasyLoading.dismiss();
     return _handleResponse(response);
   }
 
   Future<Map<String, dynamic>> delete(String endpoint) async {
+    EasyLoading.show();
     final response = await http.delete(Uri.parse('$_baseUrl/$endpoint'));
+    EasyLoading.dismiss();
     return _handleResponse(response);
   }
 

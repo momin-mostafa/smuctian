@@ -13,16 +13,17 @@ class ClassList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text('Classrooms'),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const HouseIntake()));
-            },
-            icon: const Icon(Icons.add),
-          ),
-        ],
+        // actions: [
+        //   // IconButton(
+        //   //   onPressed: () {
+        //   //     Navigator.push(context,
+        //   //         MaterialPageRoute(builder: (context) => const HouseIntake()));
+        //   //   },
+        //   //   icon: const Icon(Icons.add),
+        //   // ),
+        // ],
       ),
       body: Consumer<ClassroomProvider>(builder: (context, vm, _) {
         return ListView.builder(

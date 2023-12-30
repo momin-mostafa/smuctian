@@ -18,6 +18,7 @@ class Routes {
   var classDetails = 'class-details';
 
   // var driverInfoForm = 'form-driver-info';
+  var busTracker = 'bus-tracker';
   var emergencyInfoForm = 'form-emergency-contacts-info';
   var helpingHandInfoForm = 'form-helping-hand-info';
   var landLordInfoForm = 'form-land-lord-info';
