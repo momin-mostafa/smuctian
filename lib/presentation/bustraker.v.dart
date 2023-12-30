@@ -9,15 +9,6 @@ class BusTracker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () async {
-      //     await context.read<BusTracker>().test();
-      //   },
-      // ),
-      // appBar: AppBar(
-      //   title: const Text('Bus Tracker'),
-      //   centerTitle: true,
-      // ),
       body: Consumer<BusTrackerProvider>(builder: (context, controller, _) {
         return Stack(
           children: [

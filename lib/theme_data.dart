@@ -31,12 +31,6 @@ class AppTheme {
         color: Colors.black.withOpacity(0.6),
       ),
       fillColor: Colors.white54,
-      // enabledBorder: OutlineInputBorder(
-      //   borderSide: BorderSide(
-      //     width: 1,
-      //     color: colorScheme.primary,
-      //   ),
-      // ),
       floatingLabelStyle: const TextStyle(
         fontWeight: FontWeight.bold,
         color: Colors.green,
@@ -81,7 +75,7 @@ class AppTheme {
     ),
 
     floatingActionButtonTheme:
-        const FloatingActionButtonThemeData(shape: CircleBorder()),
+        const FloatingActionButtonThemeData(),
 
     useMaterial3: true,
   );

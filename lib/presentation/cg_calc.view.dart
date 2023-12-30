@@ -7,49 +7,32 @@ class CGCalcView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("CGCalcView"),
-      ),
-      body: Consumer<CGCalcProvider>(
-        builder: (context,vm,_) {
-          return Text(vm.registrationFeeTotal.toString());
-        }
-      ),
+    return Consumer<CGCalcProvider>(
+      builder: (context, vm, _) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text("CGCalcView"),
+            actions: [
+              FilledButton.tonalIcon(
+                icon: const Icon(Icons.add),
+                onPressed: () => vm.addCG(), label: const Text("Add"),
+              ),
+            ],
+          ),
+          body: ListView.builder(
+            shrinkWrap: true,
+            padding: const EdgeInsets.all(8),
+            itemBuilder: (context, index) => vm.listOfField[index],
+            itemCount: vm.listOfField.length,
+          ),
+          floatingActionButton: FloatingActionButton.extended(
+            onPressed: () => vm.showResult(),
+            label: const Text("Calculate"),
+            icon: const Icon(Icons.calculate_outlined),
+          ),
+        );
+      },
     );
   }
 }
-
-
-//Column(
-//             children: [
-//               TextFormField(
-//                 controller: vm.registrationPageModelTwo.newIntakeCredit,
-//               ),
-//               TextFormField(
-//                 controller: vm.registrationPageModelTwo.previousSemesterResult,
-//               ),
-//               TextFormField(
-//                 controller: vm.registrationPageModelTwo.prevTotalRegisteredCredit,
-//               ),
-//               TextFormField(
-//                 controller: vm.registrationPageModelTwo.retakeCredit,
-//               ),
-//               const Divider(),
-//               TextFormField(
-//                 controller: vm.registrationPageModelOne.id,
-//               ),
-//               TextFormField(
-//                 controller: vm.registrationPageModelOne.name,
-//               ),
-//               TextFormField(
-//                 controller: vm.registrationPageModelOne.departmentName,
-//               ),
-//               TextFormField(
-//                 controller: vm.registrationPageModelOne.sscResult,
-//               ),
-//               TextFormField(
-//                 controller: vm.registrationPageModelOne.hscResult,
-//               ),
-//             ],
 //           )
