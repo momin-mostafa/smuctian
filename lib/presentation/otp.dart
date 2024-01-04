@@ -40,12 +40,12 @@ class OtpView extends StatelessWidget {
                     length: 5,
                   ),
                   const SizedBox(height: 20),
-                  FilledButton(
-                    onPressed: () {
-                      context.read<LoginProvider>().login(context);
-                    },
-                    child: const Text('Next'),
-                  ),
+                  // FilledButton(
+                  //   onPressed: () {
+                  //     context.read<LoginProvider>().login(context);
+                  //   },
+                  //   child: const Text('Next'),
+                  // ),
                   const SizedBox(height: 10),
                   const Text(
                       'By clicking next you are agreeing to our terms and policy'),
@@ -57,7 +57,7 @@ class OtpView extends StatelessWidget {
               left: 10,
               child: IconButton.filled(
                 onPressed: () {
-                  if(Navigator.canPop(context)) Navigator.pop(context);
+                  if (Navigator.canPop(context)) Navigator.pop(context);
                 },
                 icon: const Icon(Icons.arrow_back),
               ),
@@ -65,6 +65,11 @@ class OtpView extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () => context.read<LoginProvider>().login(context), label: const Text("Login"),
+        icon: const Icon(Icons.arrow_forward),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

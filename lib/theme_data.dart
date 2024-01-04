@@ -75,7 +75,11 @@ class AppTheme {
     ),
 
     floatingActionButtonTheme:
-        const FloatingActionButtonThemeData(),
+        const FloatingActionButtonThemeData(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(30))
+          )
+        ),
 
     useMaterial3: true,
   );

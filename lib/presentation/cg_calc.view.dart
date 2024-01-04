@@ -15,7 +15,8 @@ class CGCalcView extends StatelessWidget {
             actions: [
               FilledButton.tonalIcon(
                 icon: const Icon(Icons.add),
-                onPressed: () => vm.addCG(), label: const Text("Add"),
+                onPressed: () => vm.addCG(),
+                label: const Text("Add"),
               ),
             ],
           ),

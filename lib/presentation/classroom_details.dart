@@ -126,19 +126,17 @@ class ClassDetails extends StatelessWidget {
                   style: AppStyle.headingTextStyle,
                 ),
               ),
-              Consumer<ClassroomProvider>(
-                builder: (context,vm,_) {
-                  return SliverList(
-                    delegate: SliverChildBuilderDelegate(
-                      (context, index) => const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: UnitTile(),
-                      ),
-                      childCount: 2,
+              Consumer<ClassroomProvider>(builder: (context, vm, _) {
+                return SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) => const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: UnitTile(),
                     ),
-                  );
-                }
-              ),
+                    childCount: 2,
+                  ),
+                );
+              }),
               const SliverToBoxAdapter(child: SizedBox(height: 300)),
             ],
           ),

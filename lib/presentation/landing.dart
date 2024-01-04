@@ -9,11 +9,11 @@ class LandingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
+      body: Container(
         height: MediaQuery.of(context).size.height,
-        child: Image.asset(
-          'assets/images/background.jpg',
-          fit: BoxFit.fitHeight,
+        color: const Color(0xFF1C5D99),
+        child: Container(
+          color: Colors.white.withOpacity(0.3),
         ),
       ),
       bottomSheet: Container(
@@ -53,6 +53,7 @@ class LandingView extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        heroTag: 'll',
         onPressed: () async {
           Navigator.popAndPushNamed(context, Routes.instance.login);
         },

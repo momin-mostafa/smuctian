@@ -30,8 +30,7 @@ class LoginView extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
-                      color:
-                          Theme.of(context).primaryColor.withOpacity(0.1),
+                      color: Theme.of(context).primaryColor.withOpacity(0.1),
                     ),
                     width: MediaQuery.of(context).size.width * 0.8,
                     child: TextField(
@@ -48,11 +47,11 @@ class LoginView extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
-              FilledButton(
-                onPressed: () =>
-                    Navigator.pushNamed(context, Routes.instance.otp),
-                child: const Text('Next'),
-              ),
+              // FilledButton(
+              //   onPressed: () =>
+              //       Navigator.pushNamed(context, Routes.instance.otp),
+              //   child: const Text('Next'),
+              // ),
               const SizedBox(height: 10),
               const Text(
                   'By clicking loging you are agreeing to our terms and policy'),
@@ -60,11 +59,14 @@ class LoginView extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.language),
+      floatingActionButton: FloatingActionButton.extended(
+        heroTag: 'll',
+        onPressed: () => Navigator.pushNamed(context, Routes.instance.otp),
+        label: const Text("Next"),
+        icon: const Icon(Icons.arrow_forward),
+        // shape: const Icon(Icons.language),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
